@@ -1,0 +1,6 @@
+.comment-list {
+    @include flexColumn();
+    height: 16vh;
+    overflow: auto;
+    justify-content: flex-start;
+}

@@ -1,0 +1,155 @@
+.form {
+  @include formStyle();
+}
+
+.form__head {
+  text-align: left;
+  @media screen and (min-width: 320px) and (max-width: 460px) {
+    text-align: center;
+  }
+}
+
+.form__title {
+  @include title();
+}
+
+.form__container {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 60px 0 20px;
+  @media screen and (min-width: 320px) and (max-width: 460px) {
+    margin: 40px 0 20px;
+  }
+}
+
+.form__box {
+  @include flexColumn();
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.form__label {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  &:last-of-type {
+    margin-bottom: 30px;
+  }
+}
+
+.form__description {
+  font-size: 0.7em;
+  line-height: 12px;
+  font-weight: 400;
+  color: #a0a0a0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.form__input {
+  width: 100%;
+  border: none;
+  background-color: #f9f9f9;
+  padding: 12px 8px;
+  border-radius: 8px;
+  font-size: 0.812em;
+  line-height: 16px;
+  font-weight: 400;
+  color: #000;
+}
+
+.form__button {
+  width: inherit;
+  padding: 13px 0 15px;
+  text-align: center;
+  background: linear-gradient(
+    330.53deg,
+    #d40000 -15.77%,
+    #f76343 28.41%,
+    #fc6f6f 98.47%
+  );
+  border: none;
+  border-radius: 8px;
+  &:hover {
+    opacity: 0.3;
+  }
+  @media screen and (min-width: 320px) and (max-width: 460px) {
+    padding: 15px 0 15px;
+  }
+}
+
+.form__button-text {
+  @include link();
+  text-align: center;
+  color: #fff;
+  @media screen and (min-width: 320px) and (max-width: 460px) {
+    font-size: 1em;
+    line-height: 15px;
+  }
+}
+
+.form__button_disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.2;
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+}
+
+.form__route-container {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 16px;
+  @media screen and (min-width: 320px) and (max-width: 460px) {
+    margin-top: 14px;
+  }
+}
+
+.form__question {
+  font-size: 0.87em;
+  line-height: 17px;
+  font-weight: 400;
+  color: #fff;
+  @media screen and (min-width: 320px) and (max-width: 460px) {
+    font-size: 1em;
+    line-height: 15px;
+  }
+}
+
+.form__link {
+  color: #f76343;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.form__link_purple {
+  color: #fff;
+  text-decoration: none;
+  padding: 3px;
+  &:hover {
+    opacity: 0.3;
+    border-bottom: 2px solid #fff;
+  }
+}
+.form__error {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto 20px;
+}
+
+.form__text-error {
+  font-size: 0.687em;
+  line-height: 13px;
+  font-weight: 400;
+  color: #ff004c;
+}
+
+.form__margin {
+  margin-top: 16px;
+  margin-left: 4px;
+}

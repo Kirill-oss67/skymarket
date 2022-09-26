@@ -1,0 +1,142 @@
+[
+  {
+    "model": "ads.ad",
+    "pk": 1,
+    "fields": {
+      "image": null,
+      "title": "Компьютер недорого",
+      "price": 10000,
+      "author": 1,
+      "created_at": "2022-02-03 12:10:16.332479+03:00",
+      "description": "Компьютер недорого"
+    }
+  },
+  {
+    "model": "ads.ad",
+    "pk": 2,
+    "fields": {
+      "image": null,
+      "title": "Шкаф, почти новый",
+      "price": 10000,
+      "author": 1,
+      "created_at": "2022-02-03 12:10:16.332479+03:00",
+      "description": "Покупал в шведском магазине"
+    }
+  },
+  {
+    "model": "ads.ad",
+    "pk": 3,
+    "fields": {
+      "image": null,
+      "title": "Отдам даром",
+      "price": 10000,
+      "author": 1,
+      "created_at": "2022-02-03 12:10:16.332479+03:00",
+      "description": "Самовывоз за ваш счет"
+    }
+  },{
+    "model": "ads.ad",
+    "pk": 4,
+    "fields": {
+      "image": null,
+      "title": "Автомобиль",
+      "price": 10000,
+      "author": 2,
+      "created_at": "2022-02-03 12:10:16.332479+03:00",
+      "description": "Салонам не звонить!"
+    }
+  },{
+    "model": "ads.ad",
+    "pk": 5,
+    "fields": {
+      "image": null,
+      "title": "Кухонный гарнитур",
+      "price": 10000,
+      "author": 2,
+      "created_at": "2022-02-03 12:10:16.332479+03:00",
+      "description": "Модульный, б/у"
+    }
+  },{
+    "model": "ads.ad",
+    "pk": 6,
+    "fields": {
+      "image": null,
+      "title": "Плита",
+      "price": 10000,
+      "author": 2,
+      "created_at": "2022-02-03 12:10:16.332479+03:00"
+    }
+  },
+  {
+    "model": "ads.ad",
+    "pk": 7,
+    "fields": {
+      "image": null,
+      "title": "Стиральная машина",
+      "price": 10000,
+      "author": 3,
+      "created_at": "2022-02-03 12:10:16.332479+03:00"
+    }
+  },{
+    "model": "ads.ad",
+    "pk": 8,
+    "fields": {
+      "image": null,
+      "title": "Кресло",
+      "price": 10000,
+      "author": 3,
+      "created_at": "2022-02-03 12:10:16.332479+03:00"
+    }
+  },
+  {
+    "model": "ads.ad",
+    "pk": 9,
+    "fields": {
+      "image": null,
+      "title": "Ноутбук",
+      "price": 10000,
+      "author": 3,
+      "created_at": "2022-02-03 12:10:16.332479+03:00"
+    }
+  },{
+    "model": "ads.ad",
+    "pk": 10,
+    "fields": {
+      "image": null,
+      "title": "Игра",
+      "price": 10000,
+      "author": 4,
+      "created_at": "2022-02-03 12:10:16.332479+03:00"
+    }
+  },{
+    "model": "ads.ad",
+    "pk": 11,
+    "fields": {
+      "image": null,
+      "title": "SkyStation",
+      "price": 10000,
+      "author": 4,
+      "created_at": "2022-02-03 12:10:16.332479+03:00"
+    }
+  },{
+    "model": "ads.ad",
+    "pk": 12,
+    "fields": {
+      "image": null,
+      "title": "Колеса",
+      "price": 10000,
+      "author": 4,
+      "created_at": "2022-02-03 12:10:16.332479+03:00"
+    }
+  },{
+    "model": "ads.ad",
+    "pk": 13,
+    "fields": {
+      "image": null,
+      "title": "Рассада",
+      "price": 10000,
+      "author": 4,
+      "created_at": "2022-02-03 12:10:16.332479+03:00"
+    }
+  }
+]

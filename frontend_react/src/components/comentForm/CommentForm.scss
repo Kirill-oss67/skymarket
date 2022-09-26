@@ -1,0 +1,43 @@
+.comment__form {
+  @include flexColumn;
+  margin-top: 8px;
+}
+
+.comment-label {
+  @include label();
+  margin: 0;
+}
+
+.comment__form-title {
+  @include inputTitle();
+}
+
+.comment__input {
+  @include input();
+  background-color: #f9f9f9;
+  color: #000;
+  margin: 0 auto;
+}
+
+.input-hidden {
+  @include inputHidden();
+}
+
+.input-error {
+  @include inputError;
+}
+
+.comment__button {
+  @include buttonSubmit();
+  background-color: #fff;
+  align-self: flex-end;
+}
+
+.comment__button-text {
+  @include buttonText();
+  color: #6464b9;
+}
+
+.comment__button_disabled {
+  @include buttonDisabled();
+}

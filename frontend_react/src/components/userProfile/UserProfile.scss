@@ -1,0 +1,123 @@
+.userProfile-title {
+  @include title();
+  @include padding();
+}
+
+.userProfile-grid {
+  display: grid;
+  align-items: flex-start;
+  width: 1000px;
+  grid-template-columns: fit-content(300px) fit-content(500px);
+  column-gap: 200px;
+  box-sizing: border-box;
+  padding-bottom: 80px;
+  margin: 0 auto;
+  @media screen and (min-width: 1440px) {
+    width: 1140px;
+  }
+  @media screen and(min-width: 870px) and (max-width: 1140px) {
+    width: 800px;
+    grid-template-columns: fit-content(300px) fit-content(360px);
+    column-gap: 80px;
+  }
+  @media screen and(min-width: 600px) and (max-width: 869px) {
+    width: 100%;
+    grid-template-columns: fit-content(300px) fit-content(auto);
+    column-gap: 60px;
+  }
+  @media screen and(max-width: 599px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.userProfile-area {
+  width: 440px;
+  @media screen and(min-width: 966px) and (max-width: 1140px) {
+    width: 360px;
+  }
+  @media screen and(min-width: 600px) and (max-width: 965px) {
+    width: 250px;
+  }
+  @media screen and (max-width: 599px) {
+    width: 100%;
+    align-items: center;
+  }
+  @media screen and(min-width: 500px) and (max-width: 599px) {
+    padding: 0 20px;
+  }
+}
+
+.userProfile-container {
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+.profile-avatar {
+  background-size: cover;
+  background-position: center;
+  object-fit: center;
+  display: block;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 5px 2px #b8b8b8;
+  @media screen and (min-width: 600px) and (max-width: 700px) {
+    width: 210px;
+    height: 210px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-bottom: 32px;
+  }
+  @media screen and (max-width: 350px) {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+.profile-avatar__button {
+  position: absolute;
+  top: 200px;
+  right: 2px;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  background-image: url(../../images/draw_prpl.png);
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  background-position: center;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 5px 3px #b8b8b8;
+  cursor: pointer;
+  &:hover {
+    background-color: #6464b9;
+    background-image: url(../../images/draw.png);
+  }
+  @media screen and (min-width: 600px) and (max-width: 700px) {
+    top: 150px;
+    right: 2px;
+    height: 30px;
+    width: 30px;
+  }
+  @media screen and (max-width: 350px) {
+    top: 170px;
+    right: -2px;
+    height: 30px;
+    width: 30px;
+  }
+}

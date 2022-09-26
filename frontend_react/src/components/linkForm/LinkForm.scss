@@ -1,0 +1,54 @@
+.linkForm {
+  @include formStyle();
+  padding: 0;
+  justify-content: center;
+  @media screen and (max-width: 800px) {
+    padding: 0;
+    justify-content: center;
+  }
+  @media screen and (max-width: 460px) {
+    width: 81.25%;
+  }
+}
+
+.linkForm__form {
+  @include flexColumn();
+}
+
+.linkForm__label {
+  @include label();
+}
+
+.linkForm__subtitlte {
+  @include inputTitle();
+}
+
+.linkForm__input {
+  @include input();
+  background-color: #f9f9f9;
+  color: #000;
+}
+
+.linkForm__inputHidden {
+  @include inputHidden();
+}
+
+.linkForm__inputError {
+  @include inputError();
+}
+
+.linkForm__button {
+  @include buttonSubmit();
+  background: linear-gradient(
+    330.53deg,
+    #d40000 -15.77%,
+    #f76343 28.41%,
+    #fc6f6f 98.47%
+  );
+  justify-content: flex-start;
+  @include buttonText();
+}
+
+.linkForm__button-disabled {
+  @include buttonDisabled;
+}

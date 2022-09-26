@@ -1,0 +1,160 @@
+.userForm {
+  @include flexColumn();
+  justify-content: normal;
+  flex-grow: 1;
+  width: 800px;
+  padding: 80px 0;
+  @media screen and (min-width: 600px) and (max-width: 999px) {
+    width: 80%;
+    padding: 80px 0 40px;
+  }
+  @media screen and (max-width: 599px) {
+    width: 90%;
+    padding: 32px 0 30px;
+  }
+}
+
+.userForm__form-box {
+  margin-bottom: 20px;
+}
+
+.userForm-profile {
+  @include flexColumn();
+  width: 100%;
+}
+
+.userForm-editPopup {
+  @include flexColumn();
+  width: 100%;
+}
+
+.userForm__title {
+  @include title();
+  margin-bottom: 28px;
+}
+
+.userForm__title-comment {
+  @media screen and (max-width: 520px) {
+    padding-left: 0;
+    margin-left: 0 !important;
+  }
+}
+
+.userForm__margin {
+  margin-left: 8px;
+}
+
+.userForm__form {
+  @include flexColumn();
+  width: 100%;
+}
+
+.userForm__form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.userForm__label {
+  width: 48%;
+  @include flexColumn();
+  box-sizing: border-box;
+  padding-bottom: 4px;
+  @media screen and (min-width: 1150px) {
+    width: 40%;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.userForm__label-profile {
+  width: 80%;
+  @include flexColumn();
+  box-sizing: border-box;
+  padding-bottom: 4px;
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.userForm__subtitle {
+  font-size: 0.7em;
+  line-height: 12px;
+  font-weight: 400;
+  color: #a0a0a0;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.userForm__input {
+  @include input();
+  background-color: #ababd8;
+  color: white;
+}
+
+.userForm__button {
+  background-color: #6464b9;
+  width: fit-content;
+  padding: 12px 18px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.userForm__button-text {
+  @include link();
+  text-align: center;
+  color: #fff;
+  @media screen and (max-width: 460px) {
+    font-size: 1em;
+    line-height: 15px;
+  }
+}
+
+.userForm__button_disabled {
+  @include buttonDisabled();
+}
+
+.link-button {
+  text-decoration: none;
+  line-height: 0;
+  margin-left: 40px;
+  @media screen and (max-width: 500px) {
+    margin-left: 0;
+    margin-top: 24px;
+  }
+}
+
+.link-btn {
+  background-image: url(../../images/plus.png);
+  background-size: 28px 28px;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.userForm__label-comment {
+  width: 100%;
+}
+
+.userForm__button-margin {
+  margin-top: 34px;
+}

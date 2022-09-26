@@ -1,0 +1,60 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 8px;
+  margin-bottom: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+  &:first-of-type {
+    margin-top: 12px;
+  }
+}
+
+.comment-text {
+  @include cardDescription();
+  font-size: 1em;
+  text-align: left;
+}
+
+.commentBox {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-left: 10px;
+}
+
+.comment__author-text {
+  align-self: center;
+}
+
+.comment-message {
+  width: 70%;
+}
+
+.comment-buttons {
+  display: flex;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-button {
+  width: 12px;
+  height: 12px;
+  background-size: 12px 12px;
+}
+
+.comment-box {
+  display: flex;
+  justify-content: center;
+}
+
+.comment-img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-right: 12px;
+  border-radius: 50px;
+}

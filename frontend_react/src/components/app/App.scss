@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #39397F;
+  font-family: 'BebasNeue', 'Lato', 'Roboto', 'Inter', Arial, sans-serif;
+  text-align: center;
+  color: #fff;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+

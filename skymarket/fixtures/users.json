@@ -1,0 +1,72 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "email": "test@skypro.ru",
+      "password":"pbkdf2_sha256$260000$3bo3p1RBL9USUYt4njQGst$VABz0+ssAtcd6WS4s8Uf55iOlu0vLcyb9mAOPwfc9nU=",
+      "last_login": "2022-02-20 13:34:16.332479+03:00",
+      "phone": "+79217777777",
+      "role": "user",
+      "first_name":"Иван",
+      "last_name": "Иванов",
+      "is_active": true
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "email": "test2@skypro.ru",
+      "password": "pbkdf2_sha256$260000$3bo3p1RBL9USUYt4njQGst$VABz0+ssAtcd6WS4s8Uf55iOlu0vLcyb9mAOPwfc9nU=",
+      "last_login": "2022-02-20 13:34:16.332479+03:00",
+      "phone": "+79218888888",
+      "role": "user",
+      "first_name":"Петр",
+      "last_name": "Петров",
+      "is_active": true
+    }
+  },
+    {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "email": "test3@skypro.ru",
+      "password": "pbkdf2_sha256$260000$3bo3p1RBL9USUYt4njQGst$VABz0+ssAtcd6WS4s8Uf55iOlu0vLcyb9mAOPwfc9nU=",
+      "last_login": "2022-02-20 13:34:16.332479+03:00",
+      "phone": "+7999999999",
+      "role": "user",
+      "first_name":"Петр",
+      "last_name": "Петров",
+      "is_active": true
+    }
+  },
+    {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "email": "test4@skypro.ru",
+      "password": "pbkdf2_sha256$260000$3bo3p1RBL9USUYt4njQGst$VABz0+ssAtcd6WS4s8Uf55iOlu0vLcyb9mAOPwfc9nU=",
+      "last_login": "2022-02-20 13:34:16.332479+03:00",
+      "phone": "+79217777777",
+      "role": "user",
+      "first_name":"Сергей",
+      "last_name": "Стародубцев",
+      "is_active": true
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "email": "admin@skypro.ru",
+      "password": "pbkdf2_sha256$260000$3bo3p1RBL9USUYt4njQGst$VABz0+ssAtcd6WS4s8Uf55iOlu0vLcyb9mAOPwfc9nU=",
+      "last_login": "2022-02-20 13:34:16.332479+03:00",
+      "phone": "+79217777777",
+      "role": "admin",
+      "first_name": "Админ",
+      "last_name": "Петров",
+      "is_active": true
+    }
+  }
+]

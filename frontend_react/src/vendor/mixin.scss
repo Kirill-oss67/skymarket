@@ -1,0 +1,123 @@
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin link {
+  font-size: 1.125em;
+  cursor: pointer;
+  font-family: "Roboto";
+  text-decoration: none;
+  color: #fff;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+@mixin padding {
+  @media screen and (max-width: 420px) {
+    padding-left: 5%;
+  }
+}
+
+@mixin cardDescription {
+  text-align: right;
+  font-size: 1.1em;
+  line-height: 16px;
+  letter-spacing: -0.04em;
+  font-family: "Roboto";
+}
+
+@mixin formStyle {
+  @include flexColumn();
+  flex-grow: 1;
+  width: 396px;
+  @media screen and (min-width: 800px) and (max-width: 1280px) {
+    width: 31%;
+  }
+  @media screen and (min-width: 461px) and (max-width: 800px) {
+    width: 51.56%;
+    padding: 40px 0 0;
+    justify-content: flex-start;
+  }
+  @media screen and (max-width: 460px) {
+    width: 81.25%;
+    padding: 40px 0 0;
+    justify-content: flex-start;
+  }
+}
+
+@mixin label {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  &:last-of-type {
+    margin-bottom: 8px;
+  }
+}
+
+@mixin input {
+  width: 100%;
+  border: none;
+  padding: 12px 8px;
+  border-radius: 8px;
+  font-size: 0.812em;
+  line-height: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+@mixin inputTitle {
+  font-size: 0.7em;
+  line-height: 12px;
+  font-weight: 400;
+  color: #a0a0a0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+@mixin inputHidden {
+  height: 26px;
+  padding: 4px 8px;
+  box-sizing: border-box;
+}
+
+@mixin inputError {
+  font-size: 0.62em;
+  line-height: 12px;
+  font-style: "Roboto";
+  color: #ff0000;
+}
+
+@mixin buttonSubmit {
+  padding: 12px 20px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+@mixin buttonText {
+  @include link();
+  text-align: center;
+  font-size: 1em;
+}
+
+@mixin title {
+  font-size: 1.5em;
+  line-height: 29px;
+  text-align: left;
+  margin: 0;
+}
+
+@mixin buttonDisabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.2;
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+}

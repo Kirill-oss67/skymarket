@@ -1,0 +1,17 @@
+.commentContainer {
+  width: 90%;
+  margin: 18px auto 0;
+  @include flexColumn();
+  @media screen and (max-width: 899px) {
+    padding: 12px;
+  }
+}
+
+.commentContainer__title {
+  @include cardDescription();
+  text-align: left;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #ffff;
+  width: 100%;
+  margin-bottom: 12px;
+}

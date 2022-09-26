@@ -1,0 +1,30 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 1440px;
+  padding: 80px 2% 40px;
+  @media screen and (min-width: 1000px) and (max-width: 1439px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 999px) {
+    width: 90%;
+  }
+}
+
+.error-paragraph {
+  margin: 80px 0;
+}
+
+.padding {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  @media screen and (min-width: 1440px) {
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+  }
+  @media screen and (max-width: 820px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

@@ -1,0 +1,37 @@
+.navigation {
+  display: flex;
+  list-style: none;
+  margin-right: 32px;
+  @media screen and(max-width: 999px) {
+    flex-direction: column;
+    flex-grow: 1;
+    margin-left: 0;
+    margin-top: 80px;
+  }
+}
+
+.navigation__link {
+  margin-right: 16px;
+  text-decoration: none;
+  @media screen and (max-width: 999px) {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+}
+
+.activeLink {
+  border-bottom: 2px solid #fff;
+  @media screen and(max-width: 999px) {
+    margin: 0 auto;
+    padding: 3px;
+    margin-bottom: 12px;
+  }
+}
+
+.navigation__text {
+  @include link();
+  padding: 3px;
+  @media screen and (max-width: 999px) {
+    font-size: 1.2em;
+  }
+}

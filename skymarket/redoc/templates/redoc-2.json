@@ -1,0 +1,1210 @@
+{
+  "swagger":"2.0",
+  "info":{
+    "title":"Diary API",
+    "description":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u044f \u043f\u043e API \u043a \u043c\u0430\u0440\u043a\u0435\u0442\u043f\u043b\u0435\u0439\u0441\u0443",
+    "version":"v1"
+  },
+  "host":"localhost:8000",
+  "schemes":[
+    "http"
+  ],
+  "basePath":"/api/",
+  "consumes":[
+    "application/json"
+  ],
+  "produces":[
+    "application/json"
+  ],
+  "securityDefinitions":{
+    "Basic":{
+      "type":"basic"
+    }
+  },
+  "security":[
+    {
+      "Basic":[
+
+      ]
+    }
+  ],
+  "paths":{
+    "/api/ads/":{
+      "get":{
+        "operationId":"Список всех объявлений",
+        "description":"",
+        "parameters":[
+          {
+            "name":"page",
+            "in":"query",
+            "description":"A page number within the paginated result set.",
+            "required":false,
+            "type":"integer"
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "required":[
+                "count",
+                "results"
+              ],
+              "type":"object",
+              "properties":{
+                "count":{
+                  "type":"integer"
+                },
+                "next":{
+                  "type":"string",
+                  "format":"uri",
+                  "x-nullable":true
+                },
+                "previous":{
+                  "type":"string",
+                  "format":"uri",
+                  "x-nullable":true
+                },
+                "results":{
+                  "type":"array",
+                  "items":{
+                    "$ref":"#/definitions/Ad"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags":[
+          "Объявления"
+        ]
+      },
+      "post":{
+        "operationId":"Создать объявление",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/Ad"
+            }
+          }
+        ],
+        "responses":{
+          "201":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/AdDetail"
+            }
+          }
+        },
+        "tags":[
+          "Объявления"
+        ]
+      },
+      "parameters":[
+
+      ]
+    },
+    "/api/ads/me/":{
+      "get":{
+        "operationId":"Мои объявления",
+        "description":"",
+        "parameters":[
+          {
+            "name":"page",
+            "in":"query",
+            "description":"A page number within the paginated result set.",
+            "required":false,
+            "type":"integer"
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "required":[
+                "count",
+                "results"
+              ],
+              "type":"object",
+              "properties":{
+                "count":{
+                  "type":"integer"
+                },
+                "next":{
+                  "type":"string",
+                  "format":"uri",
+                  "x-nullable":true
+                },
+                "previous":{
+                  "type":"string",
+                  "format":"uri",
+                  "x-nullable":true
+                },
+                "results":{
+                  "type":"array",
+                  "items":{
+                    "$ref":"#/definitions/Ad"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags":[
+          "Объявления"
+        ]
+      },
+      "parameters":[
+
+      ]
+    },
+    "/api/ads/{ad_pk}/comments/":{
+      "get":{
+        "operationId":"Список отзывов к объявлению",
+        "description":"",
+        "parameters":[
+          {
+            "name":"page",
+            "in":"query",
+            "description":"A page number within the paginated result set.",
+            "required":false,
+            "type":"integer"
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "required":[
+                "count",
+                "results"
+              ],
+              "type":"object",
+              "properties":{
+                "count":{
+                  "type":"integer"
+                },
+                "next":{
+                  "type":"string",
+                  "format":"uri",
+                  "x-nullable":true
+                },
+                "previous":{
+                  "type":"string",
+                  "format":"uri",
+                  "x-nullable":true
+                },
+                "results":{
+                  "type":"array",
+                  "items":{
+                    "$ref":"#/definitions/Comment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags":[
+          "Отзывы"
+        ]
+      },
+      "post":{
+        "operationId":"Оставить отзыв",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/CommentPost"
+            }
+          }
+        ],
+        "responses":{
+          "201":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/Comment"
+            }
+          }
+        },
+        "tags":[
+          "Отзывы"
+        ]
+      },
+      "parameters":[
+        {
+          "name":"ad_pk",
+          "in":"path",
+          "required":true,
+          "type":"string"
+        }
+      ]
+    },
+    "/api/ads/{ad_pk}/comments/{id}/":{
+      "get":{
+        "operationId":"Получить отзыв по ID",
+        "description":"",
+        "parameters":[
+
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/Comment"
+            }
+          }
+        },
+        "tags":[
+          "Отзывы"
+        ]
+      },
+      "patch":{
+        "operationId":"Изменить отзыв",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/CommentPost"
+            }
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/Comment"
+            }
+          }
+        },
+        "tags":[
+          "Отзывы"
+        ]
+      },
+      "delete":{
+        "operationId":"Удалить отзыв",
+        "description":"",
+        "parameters":[
+
+        ],
+        "responses":{
+          "204":{
+            "description":""
+          }
+        },
+        "tags":[
+          "Отзывы"
+        ]
+      },
+      "parameters":[
+        {
+          "name":"ad_pk",
+          "in":"path",
+          "required":true,
+          "type":"string"
+        },
+        {
+          "name":"id",
+          "in":"path",
+          "description":"A unique integer value identifying this \u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439.",
+          "required":true,
+          "type":"integer"
+        }
+      ]
+    },
+    "/api/ads/{id}/":{
+      "get":{
+        "operationId":"Подробно об объявлении",
+        "description":"",
+        "parameters":[
+
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/AdDetail"
+            }
+          }
+        },
+        "tags":[
+          "Объявления"
+        ]
+      },
+      "patch":{
+        "operationId":"Изменить объявление",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/AdPatch"
+            }
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/AdDetail"
+            }
+          }
+        },
+        "tags":[
+          "Объявления"
+        ]
+      },
+      "delete":{
+        "operationId":"удалить объявление",
+        "description":"",
+        "parameters":[
+
+        ],
+        "responses":{
+          "204":{
+            "description":""
+          }
+        },
+        "tags":[
+          "Объявления"
+        ]
+      },
+      "parameters":[
+        {
+          "name":"id",
+          "in":"path",
+          "description":"A unique integer value identifying this \u041e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u0435.",
+          "required":true,
+          "type":"integer"
+        }
+      ]
+    },
+    "/api/refresh/":{
+      "post":{
+        "operationId":"обновить токен",
+        "description":"Takes a refresh type JSON web token and returns an access type JSON web\ntoken if the refresh token is valid.",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/TokenRefresh"
+            }
+          }
+        ],
+        "responses":{
+          "201":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/TokenAccess"
+            }
+          }
+        },
+        "tags":[
+          "Аутентификация"
+        ]
+      },
+      "parameters":[
+
+      ]
+    },
+    "/api/token/":{
+      "post":{
+        "operationId":"Получить токен",
+        "description":"Takes a set of user credentials and returns an access and refresh JSON web\ntoken pair to prove the authentication of those credentials.",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/TokenObtainPair"
+            }
+          }
+        ],
+        "responses":{
+          "201":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/TokenAccess"
+            }
+          }
+        },
+        "tags":[
+          "Аутентификация"
+        ]
+      },
+      "parameters":[
+
+      ]
+    },
+    "/api/users/":{
+      "get":{
+        "operationId":"Список пользователей",
+        "description":"",
+        "parameters":[
+          {
+            "name":"page",
+            "in":"query",
+            "description":"A page number within the paginated result set.",
+            "required":false,
+            "type":"integer"
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "required":[
+                "count",
+                "results"
+              ],
+              "type":"object",
+              "properties":{
+                "count":{
+                  "type":"integer"
+                },
+                "next":{
+                  "type":"string",
+                  "format":"uri",
+                  "x-nullable":true
+                },
+                "previous":{
+                  "type":"string",
+                  "format":"uri",
+                  "x-nullable":true
+                },
+                "results":{
+                  "type":"array",
+                  "items":{
+                    "$ref":"#/definitions/User"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags":[
+          "Пользователь"
+        ]
+      },
+      "post":{
+        "operationId":"Регистрация пользователя",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/UserRegistration"
+            }
+          }
+        ],
+        "responses":{
+          "201":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/UserRegistration"
+            }
+          }
+        },
+        "tags":[
+          "Пользователь"
+        ]
+      },
+      "parameters":[
+
+      ]
+    },
+    "/api/users/me/":{
+      "get":{
+        "operationId":"Мой профиль",
+        "description":"",
+        "parameters":[
+
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/User"
+            }
+          }
+        },
+        "tags":[
+          "Пользователь"
+        ]
+      },
+      "patch":{
+        "operationId":"Изменить профиль",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/UserChange"
+            }
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/User"
+            }
+          }
+        },
+        "tags":[
+          "Пользователь"
+        ]
+      }
+    },
+    "/api/users/reset_password/":{
+      "post":{
+        "operationId":"Сброс пароля по email (не обязательно), djoser",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/SendEmailReset"
+            }
+          }
+        ],
+        "responses":{
+          "201":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/SendEmailReset"
+            }
+          }
+        },
+        "tags":[
+          "Пользователь"
+        ]
+      },
+      "parameters":[
+
+      ]
+    },
+    "/api/users/reset_password_confirm/":{
+      "post":{
+        "operationId":"Задать новый пароль по ссылке с почты, djoser",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/PasswordResetConfirm"
+            }
+          }
+        ],
+        "responses":{
+          "201":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/PasswordResetConfirm"
+            }
+          }
+        },
+        "tags":[
+          "Пользователь"
+        ]
+      },
+      "parameters":[
+
+      ]
+    },
+    "/api/users/set_password/":{
+      "post":{
+        "operationId":"Изменить пароль",
+        "description":"",
+        "parameters":[
+          {
+            "name":"data",
+            "in":"body",
+            "required":true,
+            "schema":{
+              "$ref":"#/definitions/SetPassword"
+            }
+          }
+        ],
+        "responses":{
+          "201":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/SetPassword"
+            }
+          }
+        },
+        "tags":[
+          "Пользователь"
+        ]
+      },
+      "parameters":[
+
+      ]
+    },
+    "/api/users/{id}/":{
+      "get":{
+        "operationId":"Профиль пользователя по ID",
+        "description":"",
+        "parameters":[
+
+        ],
+        "responses":{
+          "200":{
+            "description":"",
+            "schema":{
+              "$ref":"#/definitions/User"
+            }
+          }
+        },
+        "tags":[
+          "Пользователь"
+        ]
+      },
+      "parameters":[
+        {
+          "name":"id",
+          "in":"path",
+          "description":"A unique integer value identifying this \u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c.",
+          "required":true,
+          "type":"integer"
+        }
+      ]
+    }
+  },
+  "definitions":{
+    "Ad":{
+      "required":[
+        "title",
+        "price"
+      ],
+      "type":"object",
+      "properties":{
+        "pk":{
+          "title":"ID",
+          "type":"integer",
+          "readOnly":true
+        },
+        "image":{
+          "title":"\u0424\u043e\u0442\u043e",
+          "description":"\u0420\u0430\u0437\u043c\u0435\u0441\u0442\u0438\u0442\u0435 \u0444\u043e\u0442\u043e \u0434\u043b\u044f \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f",
+          "type":"string",
+          "x-nullable":true,
+          "format":"uri"
+        },
+        "title":{
+          "title":"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "description":"\u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "type":"string",
+          "maxLength":200,
+          "minLength":1
+        },
+        "price":{
+          "title":"\u0426\u0435\u043d\u0430 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "description":"\u0414\u043e\u0431\u0430\u0432\u044c\u0442\u0435 \u0446\u0435\u043d\u0443 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "type":"integer",
+          "maximum":2147483647,
+          "minimum":0
+        },
+        "description":{
+          "title":"Описание товара",
+          "description":"Введите описание товара",
+          "type":"string",
+          "maxLength": 1000
+        }
+      }
+    },
+    "AdPatch":{
+      "type":"object",
+      "properties":{
+        "pk":{
+          "title":"ID",
+          "type":"integer",
+          "readOnly":true
+        },
+        "image":{
+          "title":"\u0424\u043e\u0442\u043e",
+          "description":"\u0420\u0430\u0437\u043c\u0435\u0441\u0442\u0438\u0442\u0435 \u0444\u043e\u0442\u043e \u0434\u043b\u044f \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f",
+          "type":"string",
+          "x-nullable":true,
+          "format":"uri"
+        },
+        "title":{
+          "title":"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "description":"\u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "type":"string",
+          "maxLength":200,
+          "minLength":1
+        },
+        "price":{
+          "title":"\u0426\u0435\u043d\u0430 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "description":"\u0414\u043e\u0431\u0430\u0432\u044c\u0442\u0435 \u0446\u0435\u043d\u0443 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "type":"integer",
+          "maximum":2147483647,
+          "minimum":0
+        },
+        "description":{
+          "title":"Описание товара",
+          "description":"Введите описание товара",
+          "type":"string",
+          "maxLength": 1000
+        }
+      }
+    },
+    "Comment":{
+      "required":[
+        "text"
+      ],
+      "type":"object",
+      "properties":{
+        "pk":{
+          "title":"ID",
+          "type":"integer",
+          "readOnly":true
+        },
+        "text":{
+          "title":"\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439",
+          "description":"\u041e\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0441\u0432\u043e\u0439 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439 \u0437\u0434\u0435\u0441\u044c",
+          "type":"string",
+          "maxLength":1000,
+          "minLength":1
+        },
+        "author_id":{
+          "title":"\u0410\u0432\u0442\u043e\u0440 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u044f",
+          "description":"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0430\u0432\u0442\u043e\u0440\u0430 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u044f",
+          "type":"integer"
+        },
+        "created_at":{
+          "title":"\u0412\u0440\u0435\u043c\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u044f",
+          "description":"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0432\u0440\u0435\u043c\u044f \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u044f",
+          "type":"string",
+          "format":"date-time",
+          "readOnly":true
+        },
+          "author_first_name":{
+          "title":"Имя автора",
+          "type":"string",
+          "readOnly":true
+        },
+        "author_last_name":{
+          "title":"Фамилия автора",
+          "type":"string",
+          "readOnly":true
+        },
+        "ad_id":{
+          "title":"Объявление",
+          "description":"Добавьте объявление, которое относится к комментарию",
+          "type":"integer"
+        },
+        "author_image":{
+          "title":"Аватарка",
+          "description":"Разместите фотографию пользователя",
+          "type":"string",
+          "x-nullable":true,
+          "format":"uri"
+        }
+      }
+    },
+    "CommentPost": {
+      "required": [
+        "text"
+      ],
+      "type": "object",
+      "properties": {
+        "pk": {
+          "title": "ID",
+          "type": "integer",
+          "readOnly": true
+        },
+        "text": {
+          "title": "\u041a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439",
+          "description": "\u041e\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0441\u0432\u043e\u0439 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439 \u0437\u0434\u0435\u0441\u044c",
+          "type": "string",
+          "maxLength": 1000,
+          "minLength": 1
+        }
+      }
+    },
+    "AdDetail":{
+      "required":[
+        "title",
+        "price",
+        "phone"
+      ],
+      "type":"object",
+      "properties":{
+        "pk":{
+          "title":"ID",
+          "type":"integer",
+          "readOnly":true
+        },
+        "image":{
+          "title":"\u0424\u043e\u0442\u043e",
+          "description":"\u0420\u0430\u0437\u043c\u0435\u0441\u0442\u0438\u0442\u0435 \u0444\u043e\u0442\u043e \u0434\u043b\u044f \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f",
+          "type":"string",
+          "readOnly":true,
+          "x-nullable":true,
+          "format":"uri"
+        },
+        "title":{
+          "title":"\u041d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "description":"\u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "type":"string",
+          "maxLength":200,
+          "minLength":1
+        },
+        "price":{
+          "title":"\u0426\u0435\u043d\u0430 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "description":"\u0414\u043e\u0431\u0430\u0432\u044c\u0442\u0435 \u0446\u0435\u043d\u0443 \u0442\u043e\u0432\u0430\u0440\u0430",
+          "type":"integer",
+          "maximum":2147483647,
+          "minimum":0
+        },
+        "phone":{
+          "title":"Phone",
+          "type":"string",
+          "minLength":1
+        },
+        "description":{
+          "title":"Описание товара",
+          "description":"Введите описание товара",
+          "type":"string",
+          "maxLength": 1000
+        },
+        "author_first_name":{
+          "title":"Author first name",
+          "type":"string",
+          "readOnly":true
+        },
+        "author_last_name":{
+          "title":"Author last name",
+          "type":"string",
+          "readOnly":true
+        },
+        "author_id": {
+          "title": "ID автора комментария",
+          "description": "Укажите автора комментария",
+          "type": "integer"
+        }
+      }
+    },
+    "TokenRefresh":{
+      "required":[
+        "refresh"
+      ],
+      "type":"object",
+      "properties":{
+        "refresh":{
+          "title":"Refresh",
+          "type":"string"
+        }
+      }
+    },
+    "TokenAccess":{
+      "type":"object",
+      "properties":{
+        "refresh":{
+          "title":"Refresh",
+          "type":"string"
+        },
+        "access":{
+          "title":"Access",
+          "type":"string"
+        }
+      }
+    },
+    "TokenObtainPair":{
+      "required":[
+        "email",
+        "password"
+      ],
+      "type":"object",
+      "properties":{
+        "email":{
+          "title":"Email",
+          "type":"string",
+          "minLength":1
+        },
+        "password":{
+          "title":"Password",
+          "type":"string",
+          "minLength":1
+        }
+      }
+    },
+    "User":{
+      "required":[
+        "first_name",
+        "last_name",
+        "phone"
+      ],
+      "type":"object",
+      "properties":{
+        "first_name":{
+          "title":"\u0418\u043c\u044f",
+          "description":"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043c\u044f, \u043c\u0430\u043a\u0441 64 \u0441\u0438\u043c\u0432\u043e\u043b\u0430",
+          "type":"string",
+          "maxLength":64,
+          "minLength":1
+        },
+        "last_name":{
+          "title":"\u0424\u0430\u043c\u0438\u043b\u0438\u044f",
+          "description":"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0444\u0430\u043c\u0438\u043b\u0438\u044e, \u043c\u0430\u043a\u0441 64 \u0441\u0438\u043c\u0432\u043e\u043b\u0430",
+          "type":"string",
+          "maxLength":64,
+          "minLength":1
+        },
+        "phone":{
+          "title":"\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0434\u043b\u044f \u0441\u0432\u044f\u0437\u0438",
+          "description":"\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0442\u0435\u043b\u0435\u0444\u043e\u043d \u0434\u043b\u044f \u0441\u0432\u044f\u0437\u0438",
+          "type":"string",
+          "maxLength":128,
+          "minLength":1
+        },
+        "id":{
+          "title":"ID",
+          "type":"integer",
+          "readOnly":true
+        },
+        "email":{
+          "title":"Email address",
+          "description":"\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u0443\u044e \u043f\u043e\u0447\u0442\u0443",
+          "type":"string",
+          "format":"email",
+          "readOnly":true,
+          "minLength":1
+        },
+        "image":{
+          "title":"Аватарка",
+          "description":"Разместите Вашу фотографию",
+          "type":"string",
+          "x-nullable":true,
+          "format":"uri"
+        }
+      }
+    },
+    "UserRegistration":{
+      "required":[
+        "email",
+        "first_name",
+        "last_name",
+        "password",
+        "phone"
+      ],
+      "type":"object",
+      "properties":{
+        "email":{
+          "title":"Email address",
+          "description":"\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u0443\u044e \u043f\u043e\u0447\u0442\u0443",
+          "type":"string",
+          "format":"email",
+          "maxLength":254,
+          "minLength":1
+        },
+        "first_name":{
+          "title":"\u0418\u043c\u044f",
+          "description":"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043c\u044f, \u043c\u0430\u043a\u0441 64 \u0441\u0438\u043c\u0432\u043e\u043b\u0430",
+          "type":"string",
+          "maxLength":64,
+          "minLength":1
+        },
+        "last_name":{
+          "title":"\u0424\u0430\u043c\u0438\u043b\u0438\u044f",
+          "description":"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0444\u0430\u043c\u0438\u043b\u0438\u044e, \u043c\u0430\u043a\u0441 64 \u0441\u0438\u043c\u0432\u043e\u043b\u0430",
+          "type":"string",
+          "maxLength":64,
+          "minLength":1
+        },
+        "password":{
+          "title":"Password",
+          "type":"string",
+          "minLength":1
+        },
+        "phone":{
+          "title":"\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0434\u043b\u044f \u0441\u0432\u044f\u0437\u0438",
+          "description":"\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0442\u0435\u043b\u0435\u0444\u043e\u043d \u0434\u043b\u044f \u0441\u0432\u044f\u0437\u0438",
+          "type":"string",
+          "maxLength":128,
+          "minLength":1
+        },
+        "image":{
+          "title":"Аватарка",
+          "description":"Разместите Вашу фотографию",
+          "type":"string",
+          "x-nullable":true,
+          "format":"uri"
+        }
+      }
+    },
+    "UserChange":{
+      "type":"object",
+      "properties":{
+        "first_name":{
+          "title":"\u0418\u043c\u044f",
+          "description":"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0438\u043c\u044f, \u043c\u0430\u043a\u0441 64 \u0441\u0438\u043c\u0432\u043e\u043b\u0430",
+          "type":"string",
+          "maxLength":64,
+          "minLength":1
+        },
+        "last_name":{
+          "title":"\u0424\u0430\u043c\u0438\u043b\u0438\u044f",
+          "description":"\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0444\u0430\u043c\u0438\u043b\u0438\u044e, \u043c\u0430\u043a\u0441 64 \u0441\u0438\u043c\u0432\u043e\u043b\u0430",
+          "type":"string",
+          "maxLength":64,
+          "minLength":1
+        },
+        "phone":{
+          "title":"\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0434\u043b\u044f \u0441\u0432\u044f\u0437\u0438",
+          "description":"\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0442\u0435\u043b\u0435\u0444\u043e\u043d \u0434\u043b\u044f \u0441\u0432\u044f\u0437\u0438",
+          "type":"string",
+          "maxLength":128,
+          "minLength":1
+        },
+        "image":{
+          "title":"Аватарка",
+          "description":"Разместите Вашу фотографию",
+          "type":"string",
+          "x-nullable":true,
+          "format":"uri"
+        }
+      }
+    },
+    "Activation":{
+      "required":[
+        "uid",
+        "token"
+      ],
+      "type":"object",
+      "properties":{
+        "uid":{
+          "title":"Uid",
+          "type":"string",
+          "minLength":1
+        },
+        "token":{
+          "title":"Token",
+          "type":"string",
+          "minLength":1
+        }
+      }
+    },
+    "SendEmailReset":{
+      "required":[
+        "email"
+      ],
+      "type":"object",
+      "properties":{
+        "email":{
+          "title":"Email",
+          "type":"string",
+          "format":"email",
+          "minLength":1
+        }
+      }
+    },
+    "UsernameResetConfirm":{
+      "required":[
+        "new_email"
+      ],
+      "type":"object",
+      "properties":{
+        "new_email":{
+          "title":"Email address",
+          "description":"\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u0443\u044e \u043f\u043e\u0447\u0442\u0443",
+          "type":"string",
+          "format":"email",
+          "maxLength":254,
+          "minLength":1
+        }
+      }
+    },
+    "PasswordResetConfirm":{
+      "required":[
+        "uid",
+        "token",
+        "new_password"
+      ],
+      "type":"object",
+      "properties":{
+        "uid":{
+          "title":"Uid",
+          "type":"string",
+          "minLength":1
+        },
+        "token":{
+          "title":"Token",
+          "type":"string",
+          "minLength":1
+        },
+        "new_password":{
+          "title":"New password",
+          "type":"string",
+          "minLength":1
+        }
+      }
+    },
+    "SetUsername":{
+      "required":[
+        "current_password",
+        "new_email"
+      ],
+      "type":"object",
+      "properties":{
+        "current_password":{
+          "title":"Current password",
+          "type":"string",
+          "minLength":1
+        },
+        "new_email":{
+          "title":"Email address",
+          "description":"\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u0443\u044e \u043f\u043e\u0447\u0442\u0443",
+          "type":"string",
+          "format":"email",
+          "maxLength":254,
+          "minLength":1
+        }
+      }
+    },
+    "SetPassword":{
+      "required":[
+        "new_password",
+        "current_password"
+      ],
+      "type":"object",
+      "properties":{
+        "new_password":{
+          "title":"New password",
+          "type":"string",
+          "minLength":1
+        },
+        "current_password":{
+          "title":"Current password",
+          "type":"string",
+          "minLength":1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+  padding: 20px 2%;
+  top: 0;
+  @media screen and (min-width: 1000px) and (max-width: 1439px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 999px) {
+    width: 100%;
+    padding: 10px 5%;
+  }
+}
+
+.header__link {
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.header__img {
+  background-color: inherit;
+  width: 64px;
+  height: 64px;
+}
+
+.header__title {
+  font-family: "BebasNeue";
+  font-size: 1.5em;
+  line-height: 26px;
+  margin: 0;
+}
+
+.header__sandwich {
+  background-color: inherit;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.3;
+  }
+  @media screen and (min-width: 320px) and (max-width: 460px) {
+    background-size: 22px 26px;
+    height: 43px;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
