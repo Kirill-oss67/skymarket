@@ -1,8 +1,10 @@
 from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import pagination, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 
+from .filters import AdFilter
 from .models import Ad, Comment
 from .permissions import IsOwner, IsAdmin
 from .serializers import AdSerializer, AdDetailSerializer, CommentSerializer
@@ -17,6 +19,8 @@ class AdViewSet(viewsets.ModelViewSet):
     serializer_class = AdSerializer
     pagination_class = AdPagination
     permission_classes = (AllowAny,)
+    filter_backends = (DjangoFilterBackend,)
+    filterset_class = AdFilter
 
     def perform_create(self, serializer):
         user = self.request.user

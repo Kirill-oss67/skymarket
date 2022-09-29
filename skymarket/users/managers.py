@@ -1,7 +1,6 @@
 from django.contrib.auth.models import BaseUserManager
 
 
-
 class UserManager(BaseUserManager):
     """
        Функция создания пользователя — в нее мы передаем обязательные поля
