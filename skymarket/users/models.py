@@ -16,7 +16,8 @@ class User(AbstractBaseUser):
         (USER, USER)
     ]
     email = models.CharField(max_length=100, default="email_address", unique=True,
-                             help_text="Введите электронную почту")
+                             help_text="Введите электронную почту",
+                             null=True)
     phone = PhoneNumberField(verbose_name="Номер телефона",
                              help_text="Укажите номер телефона",
                              null=True, blank=True)
@@ -26,13 +27,16 @@ class User(AbstractBaseUser):
     first_name = models.CharField(max_length=50,
                                   verbose_name="Имя",
                                   help_text="Введите имя(максимум 50 символов)",
-                                  default="first_name")
+                                  default="first_name",
+                                  null=True)
     last_name = models.CharField(max_length=50,
                                  verbose_name="Фамилия",
                                  help_text="Введите фамилию(максимум 50 символов)",
-                                 default="last_name")
+                                 default="last_name",
+                                 null=True)
     is_active = models.BooleanField(default=False, verbose_name="Аккаунт активен",
-                                    help_text="Укажите активен ли аккаунт")
+                                    help_text="Укажите активен ли аккаунт",
+                                    null=True)
     image = models.ImageField(upload_to='users_avatars/', null=True, blank=True,
                               verbose_name="Аватарка", help_text="Выбери свой аватар")
 
